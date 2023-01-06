@@ -1,12 +1,14 @@
 import { Fragment } from "react";
-import { Col, DatePicker } from "antd";
-import { Text } from "./components/text";
-import MasterLayout from "@layouts/masterLayout";
+import Home from "@pages/home";
+// import { Col, DatePicker } from "antd";
+// import { Text } from "./components/text";
+// import MasterLayout from "@layouts/masterLayout";
 
 const App = () => {
   return (
     <Fragment>
-      <MasterLayout/>
+      <Home/>
+      {/*<MasterLayout/>*/}
       {/*<div
         style={{
           display: "flex",
