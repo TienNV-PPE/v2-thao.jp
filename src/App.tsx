@@ -1,5 +1,9 @@
 import { Fragment } from "react";
+import { Routes, Route } from "react-router-dom"
+
 import Home from "@pages/home";
+import LoTrinh from "@pages/lo-trinh";
+
 // import { Col, DatePicker } from "antd";
 // import { Text } from "./components/text";
 // import MasterLayout from "@layouts/masterLayout";
@@ -7,7 +11,10 @@ import Home from "@pages/home";
 const App = () => {
   return (
     <Fragment>
-      <Home/>
+      <Routes>
+        <Route key={1} path="/lo-trinh" element={ <LoTrinh/> } />
+        <Route key={2} path="/" element={ <Home/> } />
+      </Routes>
       {/*<MasterLayout/>*/}
       {/*<div
         style={{

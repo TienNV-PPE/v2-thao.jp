@@ -1,55 +1,50 @@
 import MasterLayout from "@layouts/masterLayout";
-import {BiArrowBack} from "react-icons/all";
 import {Button, Space} from "antd";
-import CourseItem from "../components/courses/courseItem";
+import CourseItem from "@components/courses/courseItem";
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import {tiengnhat} from "@mockdata/menu-lo-trinh";
 
-const responsive = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: {max: 4000, min: 3000},
-    items: 5
-  },
-  desktop: {
-    breakpoint: {max: 3000, min: 1024},
-    items: 3
-  },
-  tablet: {
-    breakpoint: {max: 1024, min: 464},
-    items: 2
-  },
-  mobile: {
-    breakpoint: {max: 464, min: 0},
-    items: 1
-  }
-};
+import carouselResponsive from "@mockdata/carousel-responsive";
+import {Link} from "react-router-dom";
+import PlayCover from "@components/playCover";
+import React from "react";
 
 const home = () =>
   (
     <MasterLayout>
-
-      <Space>
-        <BiArrowBack className="text-[28px]"/>
-        <h2 className="text-[28px]">N5: Tiếng nhật hàng ngày</h2>
-        <Button>
-          <Space>
-            Lộ trình
-            <img src="src/assets/images/icons/lo-trinh.png" alt=""/>
-          </Space>
-        </Button>
-      </Space>
-      <section className="">
-
-        <Carousel responsive={responsive}>
-          <CourseItem/>
-          <CourseItem/>
-          <CourseItem/>
-          <CourseItem/>
-          <CourseItem/>
-        </Carousel>
-      </section>
+      {tiengnhat.map((value, index) => <div className={`${index == 0 ? `` : `mt-10`} space-y-2`}>
+        <Space>
+          <h2 className="text-[28px]">{value}</h2>
+          <Link to={'/lo-trinh'}>
+            <Button>
+              <Space>
+                <img src="src/assets/images/icons/lo-trinh.png" alt=""/>
+                Lộ trình
+              </Space>
+            </Button>
+          </Link>
+        </Space>
+        <section className="">
+          <Carousel responsive={carouselResponsive}>
+            <CourseItem/>
+            <CourseItem/>
+            <CourseItem/>
+            <CourseItem/>
+            <CourseItem/>
+          </Carousel>
+        </section>
+        <h2 className="text-[23px] pt-3 text-gray-500">Trải nghiệm người dùng</h2>
+        <section className="">
+          <Carousel responsive={carouselResponsive}>
+            <PlayCover size={"medium"} src={"src/assets/images/n5/3.png"}/>
+            <PlayCover size={"medium"} src={"src/assets/images/n5/2.png"}/>
+            <PlayCover size={"medium"} src={"src/assets/images/n5/1.png"}/>
+            <PlayCover size={"medium"} src={"src/assets/images/n5/1.png"}/>
+          </Carousel>
+        </section>
+      </div>)}
 
 
     </MasterLayout>
