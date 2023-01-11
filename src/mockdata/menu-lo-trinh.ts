@@ -23,4 +23,4 @@ kynangmem.map((value, index, array) => {
     label: value,
   })
 })
-export {menuTN, menuKNM}
+export {menuTN, menuKNM, tiengnhat}

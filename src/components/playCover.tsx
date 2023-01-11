@@ -2,7 +2,7 @@ import {AiFillPlayCircle} from "react-icons/all";
 
 const PlayCover = ({src, size}: { src: string, size: "small" | "medium" }) => {
   return (<div className={"relative"}>
-    <img src={src} className="w-full aspect-video "/>
+    <img src={src} className="w-full aspect-video object-cover "/>
     {size == 'small' &&
       <AiFillPlayCircle className={"absolute-xy text-4xl p-px bg-white rounded-full"}/>
     }

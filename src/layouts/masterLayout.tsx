@@ -3,6 +3,8 @@ import React from 'react';
 import {GiHamburgerMenu} from "react-icons/all";
 import Search from "antd/es/input/Search";
 import {menuTN, menuKNM} from "@mockdata/menu-lo-trinh";
+import {Link} from "react-router-dom";
+
 const {Header, Content, Sider} = Layout;
 
 const items1 = [
@@ -10,6 +12,7 @@ const items1 = [
   {label: 'GIỚI THIỆU', key: 'item-2'},
   {label: 'LIÊN HỆ', key: 'item-3'},
 ];
+
 interface IMasterLayoutProps {
   children: React.ReactNode
 }
@@ -18,13 +21,16 @@ const MasterLayout: React.FC<IMasterLayoutProps> = ({children}) => (
   <Layout>
     <Header className="header justify-between">
       <Space>
-        <img src={"./src/assets/images/logo.png"} className="logo w-[86px] h-[23px]"/>
+        <Link to={"/"}>
+          <img src={"./src/assets/images/logo.png"} className="logo w-[86px] h-[23px]"/>
+        </Link>
+
         <Button type="default" className={"bg-[#424B59] text-white flex items-center space-x-2"}>
           Menu <GiHamburgerMenu/>
         </Button>
       </Space>
       <div className="search">
-        <Search placeholder="input search text" style={{width: 200}}/>
+        <Search placeholder="Search" style={{width: 200}}/>
       </div>
 
       <Menu theme="light" mode="horizontal" defaultSelectedKeys={['2']} items={items1}/>
@@ -36,7 +42,7 @@ const MasterLayout: React.FC<IMasterLayoutProps> = ({children}) => (
           mode="inline"
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}
-          style={{height: '100%', borderRight: 0, }}
+          style={{height: '100%', borderRight: 0,}}
           items={menuTN}
         />
         <h2 className={"text-[21px] font-bold text-[#505D68]"}>Kỹ năng mềm</h2>
@@ -44,7 +50,7 @@ const MasterLayout: React.FC<IMasterLayoutProps> = ({children}) => (
           mode="inline"
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}
-          style={{height: '100%', borderRight: 0, }}
+          style={{height: '100%', borderRight: 0,}}
           items={menuKNM}
         />
       </Sider>
