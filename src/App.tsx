@@ -1,8 +1,10 @@
-import { Fragment } from "react";
-import { Routes, Route } from "react-router-dom"
+import {Fragment} from "react";
+import {Routes, Route} from "react-router-dom"
 
 import Home from "@pages/home";
 import LoTrinh from "@pages/lo-trinh";
+import GlobalProvider from "./context/GlobalProvider";
+import CourseDetail from "@pages/course-detail";
 
 // import { Col, DatePicker } from "antd";
 // import { Text } from "./components/text";
@@ -11,10 +13,14 @@ import LoTrinh from "@pages/lo-trinh";
 const App = () => {
   return (
     <Fragment>
-      <Routes>
-        <Route key={1} path="/lo-trinh" element={ <LoTrinh/> } />
-        <Route key={2} path="/" element={ <Home/> } />
-      </Routes>
+      <GlobalProvider>
+        <Routes>
+          <Route path="/course-detail" element={<CourseDetail/>}/>
+          <Route path="/lo-trinh" element={<LoTrinh/>}/>
+          <Route path="/" element={<Home/>}/>
+        </Routes>
+      </GlobalProvider>
+
       {/*<MasterLayout/>*/}
       {/*<div
         style={{
